@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            color: red;
+            color: #ff0000;
+            color: rgb(255, 0,0);/* 빨, 녹, 파 */
+            color: rgb(255, 0,0,1);/* 빨,녹,파,투명도:0~1,0이면 투명, 1이면 불투명 */
+           /* color: hs1(); 잘안씀 : 색조, 채도, 밝기 */
+           background-color: tan;
+           border-color: darkblue;
+           border-width: 1px;
+           border-style: solid;
+
+           /* 들여쓰기 */
+           text-indent: 15px;
+           /* 정렬 : left | right | center | justify */
+           text-align: center;
+           /* 텍스트 꾸미기 : none | underline(밑줄) | overline(윗줄) | line-through(취소선) */
+           text-decoration: underline;
+           /*
+           css에서 사용하는 단위
+           em : 현재 font의 배수, 부모 폰트의 배수
+           rem : 해당 문서의 기본 폰트 크기의 배수
+           %  : 퍼센트
+           px : 픽셀수(가장 많이 사용)
+           cm,mm
+           in : 인치
+           pt : 포인터 1pt = 1/72인치
+           pc : 피카소 1pc = 12pt
+           deg : 각도
+
+           */
+           /* 폰트의 종류를 선택하는 font-family */
+           font-family: Arial, "Times New Roman", serif;
+           /* font 크기 */
+           font-size: 16px;
+           /* font 스타일 */
+           font-style: italic;
+           /* font 굵기 : 100~900사이의 숫자, 100단위로 표현, bold는 700을 의미 */
+           font-weight: bold;
+           /* font : 폰트 스타일, 굵기, 크기, 패밀리 순으로 순서대로 지정해야함 
+            폰트 크기와 폰트 패밀리를 제외한 속성은 생략 가능하다.         */
+            font: italic bold 16px arial, "Time New Roman", serif;
+            
+
+        }
+
+        a{ text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div>안녕하세요. 제 이름은 홍길동입니다. 만나서 반갑습니다.</div>
+    <a href="//naver.com" class = "naver">네이버</a>
+    
+</body>
+</html>
