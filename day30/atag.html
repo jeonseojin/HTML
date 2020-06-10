@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- a 태그 : 다른 url로 이동하는 태그 -->
+    <!-- 현재 페이지와 같은 홈페이지 내의 다른 페이지인 경우  -->
+    <!-- 다른 홈페이지를 이동하는 경우 : http:// 를 추가하거나 //를 추가 -->
+    <a href="/day30/texttag.html">text 태그 예제</a><br>
+    <a href="./texttag.html">text 태그 예제</a><br>
+    <a href="http://www.naver.com">네이버1</a><br>
+    <a href="//www.naver.com">네이버2</a><br>
+
+    <!-- a 태그의 targer 속성 -->
+    <!-- targer 속성값이 _self인 경우 : 기본값 -->
+    <a href="//www.naver.com" target="_self">네이버 target : _self</a><br>
+
+    <!-- targer 속성값이 _blank인 경우 : 다른 창에서 링크를 염 -->
+    <a href="//www.naver.com" target="_blank">네이버 target : _blank</a><br>
+
+    <!-- targer 속성값이 _parent인 경우 : 부모창에서 링크를 염 -->
+    <!-- 부모가 없는 경우 _self와 동일 -->
+    <a href="//www.naver.com" target="_parent">네이버 target : _parent</a><br>
+
+    <!-- targer 속성값이 _top인 경우 : 최고 조상에서 링크를 염 -->
+    <!-- 부모가 없는 경우 _self와 동일 -->
+    <a href="//www.naver.com" target="_top">네이버 target : _top</a><br>
+
+    <!-- download 속성을 추가하면 해당 링크로 이동하는 것이 아니라 다운로드 함 -->
+    <a href="flower.jpg" download="" target="_blank">꽃 이미지</a><br>
+
+    <!-- 전화번호 연결 -> href에 tel:전화번호를 입력 -->
+    <a href="tel:+821012345678">01012345678</a><br>
+
+    <!-- 메일 연결 -> mailto : 메일명을 입력 -->
+    <a href="mailto:jun@naver.com">강사에게 메일보내기</a><br>
+
+    <!-- 새창에 네이버로 이동하게 하는 버튼을 생성해보세요. -->
+    <!-- 혼자 풀어봄 -> button 태그 안에 a 태그가 있기 때문에 글자를 클릭했을 경우에만 네이버로 적용된다. -->
+    <button> <a href="//www.naver.com" target="_blank">네이버</a> </button>
+    <!-- 선생님과 함께 -> a 태그 안에 버튼을 넣을 경우는 버튼 전체에 적용된다 -->
+    <a href="http://www.naver.com" target="_blank">
+    <button>네이버</button></a>
+
+</body>
+</html>
