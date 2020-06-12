@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            /* border-collapse: collapse; 두줄로 표시되던 테이블이 한줄로 합쳐짐 */
+        }
+        tr{
+            border: 1px solid black;
+            border-left: none;
+            border-right: none;
+        }
+        .name{
+            width: 500px;
+        }
+        .score{
+            width: 100px;
+        }
+        
+        /* 게시글줄의 색상을 변경 */
+        thead>tr{
+            background-color: khaki;
+        }
+
+        /* 짝수번째의 색상을 변경 even/2n*/
+        tbody>tr:nth-child(2n){
+            background-color: lavender;
+        }
+        /* last/first를 입력하여 첫번째 색상 또는 마지막 생상을 지정해서 변경할 수 있다. */
+        tbody>tr:first-child{
+            background-color: floralwhite;
+        }
+
+        /* 우선 순위가 짝수번색상 변경과 동일해서 위치를 아래로 변경하여 적용되도록 함 */
+        tbody>tr:hover{
+                    background-color: honeydew;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th class="name">게시글</th>
+                <th class="score">작성일</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>홍길동</td>
+                <td>20200608</td>
+            </tr>
+            <tr>
+                <td>홍길동</td>
+                <td>20200608</td>
+            </tr>
+            <tr>
+                <td>홍길동</td>
+                <td>20200608</td>
+            </tr>
+            <tr>
+                <td>홍길동</td>
+                <td>20200608</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

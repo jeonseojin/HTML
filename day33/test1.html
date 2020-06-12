@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            height: 50px;
+            overflow: hidden;
+            background-color: wheat;
+        }
+        li{
+            list-style: none;
+            box-sizing: border-box;
+            width: calc(100% / 3);
+            float: left;
+            line-height: 50px;
+            text-align: center;
+            height: 100%;
+        }
+        a{
+            text-decoration: none;
+            color: darkolivegreen;
+            width: 100%;
+            display: block;
+            height: 100%;
+            border: 1px solid black;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        /* 지금보다 더 많은 코드가 존재할 경우 a:hover로만 지정하는 것보다 
+        nav li>a:hover로 위치를 지정하는 것이 좋다. */
+        nav li > a:hover{
+            color: yellow;
+            background-color: darkolivegreen;
+        }
+        /* > 부모자식관계 li태그가 가지고 있는 a태그 */
+        li:nth-child(1)>a,li:nth-child(2)>a{
+            border-right: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">메뉴1</a></li>
+            <li><a href="#">메뉴2</a></li>
+            <li><a href="#">메뉴3</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

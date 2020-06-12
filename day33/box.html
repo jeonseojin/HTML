@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 40%;
+            background-color: yellow;
+            height: 50px;
+            display: block;
+            float: left;
+            /*block태그에서 사용(inline-block에서도 사용이 가능하기는 함)
+            float 태그를 사용하여 개발자모드로 봤을 경우 크기가 인식됨(높이)*/
+        }
+        .box:nth-of-type(2){
+            background-color: green;
+        }
+        body::after{
+            clear: both;
+            content: '';
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+
+</body>
+</html>

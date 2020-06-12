@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css:애니메이션</title>
+    <style>
+        /* 
+        1. 애니메이션을 등록 
+        2. 등록한 애니메이션을 호출
+        */
+        /* 1. 애니메이션 등록 0% -> from/ 100% -> to
+        @keyframes 애니메이션명{
+            시간비율(%){
+                스타일;
+            }
+            시간비율{
+                스타일;
+            }
+        }
+        */
+        @keyframes zoomin {
+            0%{
+                font-size: 16px;
+            }            
+            100%{
+                font-size: 40px;
+            }
+            
+        }
+        @keyframes zoom {
+            0%{
+                font-size: 16px;
+            }            
+            50%{
+                font-size: 40px;
+            }
+            100%{
+                font-size: 16px;
+            }
+            
+        }
+        /* 2. 애니매이션 호출 */
+        .zoomin{
+            /* zoomin 애니메이션을 선택 */
+            animation-name: zoomin;
+            /* 애니메이션 실행 시간이 5s -> 애니메이션이 0%~100%가 될때까지 진행 시간 */
+            animation-duration: 5s;
+            /* 애니메이션 반복 횟수(infinite:무한) */
+            animation-iteration-count: infinite;
+        }
+        .zoom{
+            animation-name:zoom;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+        .zoom1,.zoom2,.zoom3,.zoom4,.zoom5{
+            animation-name:zoom;
+            animation-iteration-count: infinite;
+            animation-duration: 3s;
+            
+        }
+        div{
+            height: 60px;
+        }
+        .zoom2{
+            animation-timing-function: ease-in-out;
+        }
+        .zoom3{
+            animation-timing-function: linear;
+        }
+        .zoom4{
+            animation-timing-function: ease-in;
+        }
+        .zoom5{
+            animation-timing-function: step-start;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <span class="zoom1">꽝</span>
+    </div>
+    <div>
+        <span class="zoom2">꽝</span>
+    </div>
+    <div>
+        <span class="zoom3">꽝</span>
+    </div>
+    <div>
+        <span class="zoom4">꽝</span>
+    </div>
+    <div>
+        <span class="zoom5">꽝</span>
+    </div>
+</body>
+</html>
