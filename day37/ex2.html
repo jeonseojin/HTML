@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <button id="btn1">증가</button>
+    <button id="btn2">바꿈</button>
+    <div id="res">0</div>
+    <script>
+        var cnt =0;
+        var add = true;
+    </script>
+    <script>
+
+        $('#btn1').click(function(){
+            if(add)
+                cnt++;
+            else
+                cnt--;
+            $('#res').text(cnt);
+        })
+
+
+        $('#btn2').click(function(){
+            /* 내가풀었을때
+             if(add){
+                 $('#btn1').text('감소');
+                 add =false;
+             }
+             else{
+                 $('#btn1').text('증가');
+                 add =true;
+             }    
+            */
+
+            var str;
+            /* 쌤이 풀어줬을때
+             if(add){
+                 str='감소';
+             }
+             else{
+                 str='증가';
+             }
+             아래 한 줄로 표현가능  
+            */
+            str = add?'감소':'증가';
+            $('#btn1').text(str);
+            add = !add;
+            
+        })
+
+    </script>
+    
+</body>
+</html>

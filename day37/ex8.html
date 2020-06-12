@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script src="../js/jquery.js"></script>
+    <script src="https://kit.fontawesome.com/506afee8ab.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .nav{
+            height: 40px;
+            background-color: thistle;
+        }
+        .ham{
+            width: 40px;
+            height: 40px;
+            box-sizing: border-box;
+            text-align: center;
+            border: 1px solid thistle;
+            font-size: 25px;
+            cursor: pointer;
+            float: right;
+            color: white;
+        }
+        .ham:hover{
+            border-color: purple;
+        }
+        .container{
+            position: relative;
+        }
+        .side-menu{
+            position: absolute;
+            right: -100px;
+            top: 0;
+            width: 200px;
+            height: 400px;
+            background-color: rosybrown;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="ham">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <div class="container">
+        <div class="side-menu"></div>
+    </div>
+    <script>
+        // $(function(){
+        //     var show = false;
+        //     $('.ham').click(function(){
+        //         if(!show){
+        //             $('.side-menu').stop().animate({'right':0},500);
+        //             show=true;
+        //         }
+        //         else{
+        //             $('.side-menu').stop().animate({'right':'-100px'},500);
+        //             show=false;
+        //         }
+
+        //     })
+        // })
+        // $(function(){
+        //     var show = false;
+        //     $('ham').click(function(){
+        //         if(!show)
+        //             $('.side-menu').stop().animate({'right' : 0},500);
+        //         else
+        //             $('.side-menu').stop().animate({'right':'-200px'},500);
+        //     })
+        // })
+        // $(선택자).hasClass('클래스')
+        // : 요소가 해당 클래스를 가지고 있는지 없지는 알려주는 함수
+        $(function(){
+            var show = false;
+            $('.ham').click(function(){
+                if(!$(this).hasClass('show'))
+                $('.side-menu').stop().animate({'right' : 0},500);
+                else
+                $('.side-menu').stop().animate({'right':'-200px'},500);
+                $(this).toggleClass('show');
+            })
+        })
+    </script>
+</body>
+</html>

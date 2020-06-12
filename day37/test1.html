@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex7 메뉴 연습</title>
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        nav{
+            height: 50px;
+            width: 100%;
+            
+        }
+        ul>li{
+            height: 50px;
+            width: calc(100% / 3);
+            float: left;
+            list-style: none;
+            text-align: center;
+            line-height: 50px;
+            box-sizing: border-box;
+            background-color: cornflowerblue;
+        }
+        .check{
+            background-color: cadetblue;
+        }
+        li>a{
+            text-decoration: none;
+            color: white;
+            font-size: 25px;   
+            display: block;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+        </ul>
+    </nav>
+    <script>
+        $(function(){
+            $('ul>li').click(function(){
+                $('ul>li').removeClass('check');
+                $(this).toggleClass('check');
+            })
+        })
+    </script>
+</body>
+</html>
