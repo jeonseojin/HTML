@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테스트예제</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        ul,ol{
+            list-style: none;
+        }
+        .nav, .nav>ul{
+            height: 50px;
+            overflow: hidden;
+            background-color: wheat;
+        }
+        li{
+            list-style: none;
+            width: calc(100% / 4);
+            height: 100%;
+            box-sizing: border-box;
+            float: left;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 50px;
+        }
+        a{
+            text-decoration: none;
+            box-sizing: border-box;
+
+        }
+        @media(max-width: 600px){
+            li{
+                display: none;
+            }
+            li:nth-of-type(4){
+                display: inline;
+                float: right;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <ul>
+            <li><a href="#">메뉴1</a></li>
+            <li><a href="#">메뉴2</a></li>
+            <li><a href="#">메뉴3</a></li>
+            <li><a href="#">≡</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
