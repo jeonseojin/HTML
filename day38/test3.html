@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제</title>
+    <script src="../js/jquery.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- 추가버튼을 클릭할 때 input창이 새로 생성되게 하는 코드 -->
+    <button id="add" >추가</button><br>
+    <div class="res">
+    </div>
+    
+    <script>
+        /*
+        $('#add').click(function(){
+            var input = '<input type="text"><br>';
+            $('.res').append(input);
+        })
+        */
+       $(function(){
+            $('#add').click(function(){
+                var str = $('.res').html();
+                str = str + '<div>'
+                +'<input type="text">'+'<button>클릭</button>'
+                + '</div>';
+                $('.res').html(str);
+                // function registerBtn 호출
+                registerBtn();
+                /* 스크립트로 태그를 구성하면, 해당 태그에는 이벤트가 자동으로 등록되지 않는다.
+                그래서 새로 추가된 요소에는 따로 이벤트를 등록해 줘야한다.*/ 
+            })
+            
+            var cnt=0;
+            function registerBtn(){
+                $('.res button').click(function(){
+                    var text = $(this).prev().val();
+                    console.log(text);
+                })
+            }
+        })
+
+        
+    </script>
+</body>
+</html>

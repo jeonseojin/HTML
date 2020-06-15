@@ -54,32 +54,22 @@
         <div class="side-menu"></div>
     </div>
     <script>
-        // $(function(){
-        //     var show = false;
-        //     $('.ham').click(function(){
-        //         if(!show){
-        //             $('.side-menu').stop().animate({'right':0},500);
-        //             show=true;
-        //         }
-        //         else{
-        //             $('.side-menu').stop().animate({'right':'-100px'},500);
-        //             show=false;
-        //         }
-
-        //     })
-        // })
-        // $(function(){
-        //     var show = false;
-        //     $('ham').click(function(){
-        //         if(!show)
-        //             $('.side-menu').stop().animate({'right' : 0},500);
-        //         else
-        //             $('.side-menu').stop().animate({'right':'-200px'},500);
-        //     })
-        // })
+        
         // $(선택자).hasClass('클래스')
         // : 요소가 해당 클래스를 가지고 있는지 없지는 알려주는 함수
         $(function(){
+            /*var show = false;
+			$('.ham').click(function(){
+				if(!show)
+					$('.side-menu').stop()
+								.animate({'right':0},500);
+				else
+					$('.side-menu').stop()
+								.animate({'right':'-200px'},500);
+				
+					show = !show;
+			})
+			*/
             var show = false;
             $('.ham').click(function(){
                 if(!$(this).hasClass('show'))

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제</title>
+    <script src="../js/jquery.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- 추가버튼을 클릭할 때 input창이 새로 생성되게 하는 코드 -->
+    <button id="add" >추가</button><br>
+    <div class="res">
+    </div>
+    
+    <script>
+       $(function(){
+           var index= 1;
+            $('#add').click(function(){
+                var str = '<div>' +
+                    '<input type="text">' +
+                    '<button>클릭'+index+'</button>' + 
+                '</div>';
+                index++;
+                $('.res').append(str);
+        // 새로 추가된 박스 안에 있는 버튼을 클릭할 때 실행되는 이벤트 등록
+                $('.res').children().last().find('button').click(function(){
+                    console.log($(this).prev().val());
+                })
+            })
+        })
+
+        
+    </script>
+</body>
+</html>
