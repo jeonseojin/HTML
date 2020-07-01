@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테슷흐</title>
+    <script src="../js/jquery.js"></script>
+    <style>
+        .box-container{
+            width: 400px;
+            height: 50px;
+            border: 1px solid black;
+            position: relative;
+            overflow: hidden;
+        }
+        .box{
+            width: 400%;
+            height: 100px;
+            margin-left: -800px;
+        }
+        .box1{
+            background-color: cornflowerblue;
+            box-sizing: border-box;
+            float: left;
+            width: 400px;
+            height: 50px;
+        }
+        .box2{
+            background-color: skyblue;
+            box-sizing: border-box;
+            float: left;
+            width: 400px;
+            height: 50px;
+        }
+        .box3{
+            background-color: steelblue;
+            box-sizing: border-box;
+            float: left;
+            width: 400px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 보이는 구간을 정해서 3배정도의 크기의 박스가 이동하는 것 -->
+    <div class="box-container">
+        <div class="box">
+            <div class="b box1"></div>
+            <div class="b box2"></div>
+            <div class="b box3"></div>
+        </div>
+    </div>
+    <button class="btn">이동!</button>
+    <script>
+        $(function(){
+            $('.btn').click(function(){
+                if(!$('.b').is(':animated')){
+                    $('.b').first().animate({'margin-left':'400px'},1000,function(){
+                        $('.b').last().detach().prependTo('.box');
+                        $(this).removeAttr('style');
+                    })
+                }   
+            })
+        })
+    </script>
+</body>
+</html>

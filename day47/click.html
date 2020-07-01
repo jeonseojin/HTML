@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭이벤트</title>
+    <script src="../js/jquery.js"></script>
+    <style>
+        body{
+            margin: 50px 0 0 130px;
+        }
+        .box{
+            width: 150px;
+            height: 150px;
+            display: inline-block;
+            margin-right: 50px;
+            background-color: rgb(49, 109, 109);
+        }
+        .box:nth-child(2){
+            background-color: rgb(93, 160, 216);
+        }
+        .box:nth-child(3){
+            background-color: thistle;
+        }
+        a{
+
+        }
+    </style>
+</head>
+<body>
+    <!-- 상자를 클릭했을때 그 상자의 색상번호를 확인할 수 있는 코드를 작성 -->
+    <a href="#" class="box"></a>
+    <a href="#" class="box"></a>
+    <a href="#" class="box"></a>
+    <script>
+        $(function(){
+            // 동일한 기능을 하는 요소들의 이벤트를 하나의 이벤트로 적용할 수 있는지를 확인할 수 있는 예제
+            // css()함수를 사용할수 있는지를 확인하는 예제
+            $('.box').click(function(){
+                var color=$(this).css('background-color');
+                alert(color);
+            })
+        })
+        
+    </script>
+</body>
+</html>

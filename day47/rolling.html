@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>롤링이벤트</title>
+    <script src="../js/jquery.js"></script>
+    <style>
+        body{
+            margin: 50px;
+        }
+        .container{
+            width: 1100px;
+            border: 1px solid gray;
+            padding: 20px;
+            text-align: center;
+        }
+        .box{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: thistle;
+        }
+        .input-btn{
+            margin-top: 15px;
+            width: 50px;
+            height: 30px;
+            background-color: slategrey;
+            border-radius: 15px;
+            border: none;
+            color: white;
+            font-size: 10px;
+        }
+        .box-container{
+            margin-top: 20px;
+            height: 340px;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .move{
+            margin-top: 20px;
+        }
+        .boxe{
+            width: 100px;
+            height: 100px;
+            background-color: blanchedalmond;
+        }
+        .box2{
+            float: left;
+            /* css의 속성 left는 position 속성에 따라 적용될 수 있고 안될 수 있다.
+            static(기본)은 적용 안됨 */
+        }
+        .box3{
+            position: absolute;
+            top: 200px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <input type="button" value="움찔" class="input-btn">
+    </div>
+
+    <div class="box-container">
+        <div class="box1 boxe"></div>
+        <div class="box2 boxe"></div>
+        <div class="box3 boxe"></div>
+    </div>
+    <button type="button" value="" class="move btn-move1">박스1이동</button>
+    <button type="button" value="" class="move btn-move2">박스2이동</button>
+    <button type="button" value="" class="move btn-move3">박스3이동</button>
+    <script>
+        $(function(){
+            $('.input-btn').click(function(){
+                $('.box').animate({'margin-left':'935px'},1500,function(){
+                    $('.box').animate({'margin-left':'0'},1500)
+                })
+            })
+
+/*
+예제를 할 수 있는 조건
+animate()함수를 이용할 수 있는가
+css속성을 정확히 이애하는가?
+*/
+            $('.btn-move1').click(function(){
+                $('.box1').animate({'margin-left':'500px'},1000,function(){
+                    $(this).animate({'margin-left':'0px'},1000)
+                });
+            })
+            $('.btn-move2').click(function(){
+                $('.box2').animate({'float':'right'},1000)
+                // box2와 box3이 겹치게됨
+            })
+            $('.btn-move3').click(function(){
+                $('.box3').animate({'left':'500px'},1000,function(){
+                    $(this).animate({'left':'0px'},1000)
+                })
+            })
+        })
+/* 이동하는 여러가지 방법 활용
+box1 = margin을 이용해서 좌우로 이동
+box2 = float을 이용하여 좌우로 이동하려고 할 경우 적용되지 않음
+        float와 같이 숫자로 표현할 수 없는 속성들은 animate를 적용할 수 없다. 이와 같은 
+        속성으로는 transtion, transfrom등이 있다.
+box3 = 
+*/
+    </script>
+</body>
+</html>
