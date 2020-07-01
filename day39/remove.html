@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>삭제 함수 예제</title>
+    <script src="../js/jquery.js"></script>
+    <style>
+        div{
+            border: 1px solid skyblue;
+            text-align: center;
+            height: 50px;
+            line-height: 48px;
+            font-size: 35px;
+            color: steelblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="first">첫번째 상자</div>
+    <div class="second">두번째 상자</div>
+    <input type="text" class="d" value="ddd">
+    <script>
+        $(function(){
+            /*
+            remove : 본인과 자손들을 삭제
+            empty : 요소의 자손들을 삭제
+            */
+            $('.first').remove();
+            $('.second').empty();
+            
+        })
+    </script>
+</body>
+</html>
