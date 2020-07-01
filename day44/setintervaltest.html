@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머연습</title>
+    <script src="../js/jquery.js"></script>
+    <style>
+        .box{
+            width: 500px;
+            height: 400px;
+            margin: 40px;
+            padding: 50px;
+            border: 3px solid blue;
+            box-sizing: border-box;
+        }
+        .timer{
+            background-color: skyblue;
+            font-size: 40px;
+            text-align: center;
+            width: 100%px;
+            height: 150px;
+            line-height: 147px;
+            color: white;
+        }
+        .button-box{
+            margin-top: 20px;
+            width: 100%;
+            height: 50px;
+        }
+        .start{
+            border: 1px solid steelblue;
+            background-color: steelblue;
+            width: 195px;
+            height: 50px;
+            float: left;
+            color: white;
+            font-size: 30px;
+        }
+        .stop{
+            border: 1px solid rgb(54, 54, 228);
+            background-color: rgb(54, 54, 228);
+            width: 195px;
+            height: 50px;
+            color: white;
+            font-size: 30px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="timer">
+            <span class="hr">00</span>
+            <span class="colon">:</span>
+            <span class="min">00</span>
+            <span class="colon">:</span>
+            <span class="sec">00</span>
+            <span class="ms">00</span>
+        </div>
+        <div class="button-box">
+            <button class="start">시작</button>
+            <button class="stop">중지</button>
+        </div>
+    </div>  
+    <script>
+        // 일정간격동안 처리하고자 하는 것
+        var ms=0;
+        var m=0;
+        var s=0;
+        var h=0;
+        var timerInterval;
+        $('.start').click(function(){
+            timerInterval = setInterval(function(){
+                ms++
+                // ms출력
+                if(ms==100){  
+                    ms =0; 
+                    s++
+                    if(s==60){ 
+                        s =0; 
+                        m++
+                        if(m==60){ 
+                            m=0; 
+                            h++
+                            if(h==24){ h=0; }
+                            if(h<10){ $('.hr').text('0'+h); }
+                            else{ $('.hr').text(h); }   
+                        }
+                        if(m<10){ $('.min').text('0'+m); }
+                        else{ $('.min').text(m); }
+                    }
+                    if(s<10){ $('.sec').text('0'+s); }
+                    else{ $('.sec').text(s); }
+                }
+                if(ms<10){ $('.ms').text('0'+ms); }
+                else{ $('.ms').text(ms); }
+            },10)
+        })
+        $('.stop').click(function(){
+            clearInterval(timerInterval);
+        })
+        
+    </script>
+    
+</body>
+</html>
