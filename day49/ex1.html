@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <style>
+        .container{
+            width: 500px;
+            height: 300px;
+            border: 1px solid black;
+            position: relative;
+            padding: 15px;
+            margin: 0 auto;
+        }
+        .box1{
+            width: 50px;
+            height: 50px;
+            background-color: cornflowerblue;
+            display: block;
+            text-align: center;
+            line-height: 48px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            box-sizing: border-box;
+            font-weight: bold;
+        }
+        .box2{
+            width: 430px;
+            height: 50px;
+            position: absolute;
+            bottom: 0px;
+            left: 50px;
+            box-sizing: border-box;
+            font-size: 20px;
+            border: 2px solid steelblue;
+        }
+        .btn-ok{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 48px;
+            box-sizing: border-box;
+            text-decoration: none;
+            color: black;
+            background-color: cornflowerblue;
+            font-weight: bold;
+        }
+        .btn-ok:hover{
+            color: white;
+            background-color: steelblue;
+        }
+        .box{
+            position: absolute;
+            width: 500px;
+            height: 230px;
+            box-sizing: border-box;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <span class="box1">댓 글</span>
+        <input type="text"class="box2" placeholder="입력하세요">
+        <a href="#" class="btn-ok">확 인</a>
+    </div>
+    <script>
+        $(function(){
+            var cnt = 1;
+            $('.btn-ok').click(function(){
+                var s =$('.box2').val();
+                var t = '<span>'+'댓 글 '+cnt+' :'+ s + '</span>'+'<br>'
+                $('.box').append(t);
+                cnt++;
+            })
+        })
+    </script>
+</body>
+</html>
