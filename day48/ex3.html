@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <style>
+        body{
+            margin: 20px;
+        }
+        .box-ul{
+            padding: 0;
+            margin: 0;
+            height: 100px;
+            width: 500px;
+            
+            line-height: 98px;
+        }
+        .list{
+            list-style: none;
+            display: flex;
+            width: calc(100% / 3);
+            height: 100%;
+            background-color: steelblue;
+            float: left;
+            cursor: pointer;
+        }
+        .list1,
+        .list2{
+            border-right: none;
+        }
+        .box-contents{
+            margin-top: 15px;
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+        }
+        .box{
+            width: 100%;
+            height: 100%;
+            background-color: steelblue;
+            text-align: center;
+            line-height: 500px;
+            color: white;
+        }
+        .box2,.list2{
+            background-color: dodgerblue;
+        }
+        .box3,.list3{
+            background-color: skyblue;
+        }
+        .display-none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul class="box-ul">
+        <li class="list list1" data-target=".box1"></li>
+        <li class="list list2" data-target=".box2"></li>
+        <li class="list list3" data-target=".box3"></li>
+    </ul>
+    <div class="box-contents">
+        <div class="box box1">하나</div>
+        <div class="box box2 display-none">두울</div>
+        <div class="box box3 display-none">세엣</div>
+    </div>
+    <script>
+        $(function(){
+            $('.list').click(function(){
+                var t=$(this).attr('data-target');
+                $('.box').addClass('display-none');
+                $(t).removeClass('display-none')
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <script src="https://kit.fontawesome.com/506afee8ab.js" crossorigin="anonymous"></script>
+    <style>
+        .box{
+            border: 1px solid black;
+            width: 400px;
+            height: 200px;
+            padding: 20px;
+            position: relative;
+        }
+        .box-input,.ok{
+            margin-left: 75px;
+            margin-top: 20px;
+        }
+        .ok{
+            width: 245px;
+            position: absolute;
+            bottom: 70px;
+        }
+        .input-id{
+            margin-left: 5px;
+        }
+        .login{
+            margin: 118px 0 0 130px;
+            font-size: 50px;
+        }
+        .icon{
+            position: absolute;
+            right: 15px;
+            top: 0;
+            font-size: 30px;
+            color: #000;
+        }
+        .display-none{
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <button class="login display-none">로그인</button>
+        <div class="login-box">
+            <a href="#" class="icon"><i class="fas fa-times"></i></a>
+            <div class="box-input">
+                아 이 디 <input type="text" class="input-id" placeholder="아이디 입력">
+            </div>
+            <div class="box-input">
+                비밀번호 <input type="password" class="input-pw" placeholder="비밀번호 입력">
+            </div>
+            <button class="ok">확 인</button>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $('.login').click(function(){
+                $(this).addClass('display-none');
+                $('.login-box').removeClass('display-none');
+            })
+            $('.icon').click(function(){
+                $('.login-box').addClass('display-none')
+                $('.login').removeClass('display-none')
+            })
+            $('.ok').click(function(){
+                var lo = $('.input-id').text();
+                var gin = $('.input-pw').text();
+                alert(lo,gin)
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <script src="https://kit.fontawesome.com/506afee8ab.js" crossorigin="anonymous"></script>
+    <style>
+        .container{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .btn{
+            position: absolute;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            color: seagreen;
+            text-align: center;
+            line-height: 48px;
+            font-size: 30px;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        .btn:hover{
+            background-color: honeydew;
+        }
+        .list{
+            width: 250px;
+            height: 600px;
+            float: right;
+            background-color: honeydew;
+            margin-top: 60px;
+            margin-right: -300px;
+        }
+        .display-none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 우측에 햄버거 메뉴를 만들고 클릭하면 메뉴리스트가 나오게 만들기 -->
+    <div class="container">
+        <div class="btn">
+            <a class="ham"><i class="fas fa-bars"></i></a>
+            <a class="xxx display-none"><i class="fas fa-times"></i></a>
+        </div>
+        <div class="list"></div>
+    </div>
+    <script>
+        $(function(){
+            $('.ham').click(function(){
+                $('.list').animate({'margin-right':'0'},1500)
+                $('.ham').addClass('display-none');
+                $('.xxx').removeClass('display-none');
+            })
+            $('.xxx').click(function(){
+                $('.list').animate({'margin-right':'-300px'},1500)
+                $('.xxx').addClass('display-none');
+                $('.ham').removeClass('display-none');
+            })
+        })
+    </script>
+</body>
+</html>
