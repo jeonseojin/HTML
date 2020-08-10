@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <script src="../js/jquery.js"></script>
+    <script src="https://kit.fontawesome.com/506afee8ab.js" crossorigin="anonymous"></script>
+    <link rel="icon" sizes="192x192" href="//cdn.lezhin.com/files/assets/img/favicon.png">
+    <style>
+        *,::before,::after{
+            box-sizing: border-box;
+        }
+        body{
+            position: relative;
+            margin: 0;
+            overflow: scroll;
+            background-color: silver;
+            color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            text-size-adjust: none;
+            overflow-wrap: break-word;
+        }
+        .ko-kr{
+            font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', NanumBarunGothic, NanumGothic, 'Malgun Gothic', dotum, sans-serif;
+            word-break: keep-all;
+        }
+        .common{
+            position: relative;
+            box-sizing: border-box;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .common::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .common-menu{
+            z-index: 7;
+            background-color: #fff;
+            line-height: 64px;
+            white-space: nowrap;
+            width: 1036px;
+            height: 112px;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        .gnb-logo{
+            width: 64px;
+            height: 64px;
+            text-align: center;
+            font-size: 0;
+            background: #ed1c24 padding-box;
+        }
+        .gnb-logo::after{
+            content: '';
+            vertical-align: middle;
+            display: inline-block;
+            background-image: url("http://cdn.lezhin.com/files/assets/img/jaymee.svg");
+            background-repeat: no-repeat;
+        }
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
+        .gnb{
+            line-height: 48px;
+            font-size: 0;
+            color: rgb(51,51,51);
+            white-space: nowrap;
+            float: left;
+            margin-left: 48px;
+            margin-bottom: 4px;
+        }
+        ol,ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .gnb-item{
+            position: relative;
+            vertical-align: top;
+            margin-right: 12px;
+            text-align: center;
+        }
+        .gnb-link{
+            position: relative;
+            display: inline-block;
+            padding: 0 8px;
+            vertical-align: middle;
+            text-align: center;
+            border-radius: 2px;
+            text-transform: uppercase;
+            color: rgb(0,0,0);
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+
+
+
+        @media(min-width: 961px){
+            .gnb{
+                float: left;
+                margin: 8px 0 4px 48px;
+            }
+            .common-menu{
+                border-top: 24px solid #fff;
+                border-bottom: 24px solid #fff;
+            }
+            .gnb-logo{
+                float: left;
+                width: 64px;
+                height: 64px;
+                line-height: 64px;
+            }
+            .gnb-logo::after{
+                width: 27px;
+                height: 29px;
+            }
+            .gnb-item{
+                display: inline-block;
+            }
+        }
+        @media(min-width: 640px){
+            .common-menu{
+                box-shadow: -1000px 0 0 #fff, 1000px 0 0 #fff;
+
+            }
+        }
+        @media(max-width: 1280px)and(min-width: 961px){
+            .common{
+                max-width: 1036px;
+            }
+        }
+        @media(min-width: 640px){
+            .common{
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+        }
+    </style>
+</head>
+<body class="ko-kr">
+    <header id="main-header" class="common common-menu">
+        <a class="gnb-logo" href="#"></a>
+        <nav id="gnb" class="gnb">
+            <ul class="gnb-list">
+                <li class="gnb-item">
+                    <a class="gnb-link" href="#">연재</a>
+                </li>
+                <li class="gnb-item">
+                    <a class="gnb-link" href="#">랭킹</a>
+                </li>
+                <li class="gnb-item">
+                    <a class="gnb-link" href="#">무료</a>
+                </li>
+                <li class="gnb-item">
+                    <a class="gnb-link" href="#">이벤트</a>
+                </li>
+                <li class="gnb-item">
+                    <a class="gnb-link" href="#">완결</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+</body>
+</html>
