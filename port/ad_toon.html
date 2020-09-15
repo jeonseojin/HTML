@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/506afee8ab.js" crossorigin="anonymous"></script>
+    <style>
+        .display-none{
+            display: none;
+        }
+        .ad-toon-list{
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#" aria-selected="true" data-target="ad-toon-all">전체작품조회</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#" data-target="ad-toon-search">작품검색</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#" data-target="ad-toon-record">작품등록</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#" data-target="ad-toon-data">작품정보</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#" data-target="ad-toon-ranking">작품랭킹</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#" data-target="ad-toon-delete">작품삭제</a>
+        </li>
+      </ul>
+
+      <div class="ad-toon">
+            <div class="ad-toon-list ad-toon-all">
+
+            </div>
+            <div class="ad-toon-list ad-toon-search">
+
+            </div>
+            <div class="ad-toon-list ad-toon-record">
+
+            </div>
+            <div class="ad-toon-list ad-toon-data">
+
+            </div>
+            <div class="ad-toon-list ad-toon-ranking">
+
+            </div>
+            <div class="ad-toon-list ad-toon-delete">
+
+            </div>
+      </div>
+    <script>
+        $(function(){
+            $('.nav .nav-link').click(function(e){
+                e.preventDefault();
+                $('.nav .nav-link').attr('aria-selected','false');
+                $(this).attr('aria-selected','true');
+                adtoonView();
+            })
+        })
+        function adtoonView(){
+            var target = $('.nav-item .nav-link[aria-selected=true]').attr('data-target');
+            $('.ad-toon>.ad-toon-list').addClass('display-none');
+            $('.ad-toon .'+target).removeClass('display-none');
+        }
+        adtoonView();
+    </script>  
+</body>
+
+</html>

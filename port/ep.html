@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+    <style>
+        .comicInfo{
+            position: relative;
+            color: #fff;
+            background: rgb(75, 75, 75);
+            transform: translateZ(0);
+        }
+        .comicInfo-img{
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: -9px;
+        }
+.comicInfo-title{
+    margin: 0 0 16px;
+    line-height: 38px;
+    font-size: 28px;
+    font-weight: 500;
+    color: #fff;
+}
+@media(min-width:640px){
+    .comicInfo{
+        float: left;
+        min-height: 100vh;
+    }
+}
+@media(min-width:1281px){
+    .comicInfo{
+        width: 420px;
+    }
+}
+@media(max-height: 960px) and (min-width:640px){
+    .comicInfo{
+        width: 48%;
+        padding-top: 96%;
+    }
+}
+@media(max-height: 767px) and (min-width:640px){
+    .comicInfo{
+        height: 100%;
+        position: absolute;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div id="comic-info" class="comicInfo">
+        <img class="comicInfo-img" src="../port/사귄 건 아닌데.png" alt="">
+        <div class="comicInfo-detail">
+            <h2 class="comicInfo-title">사귄 건 아닌데</h2>
+
+        </div>
+    </div>
+    
+</body>
+</html>

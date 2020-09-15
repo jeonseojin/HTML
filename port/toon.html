@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+</head>
+<style>
+    .toon-week-box{
+        position: sticky;
+        z-index: 7;
+        top: 0;
+    }
+
+    .toon-week{
+        background-color: #eff1f4;
+        font-weight: bold;
+        display: inline-block;
+        text-align: center;
+        border: none;
+        cursor: context-menu;
+    }
+    .toon-week:hover{
+        background-color: #dbdee3;
+    }
+    .toon-week[aria-selected='true']{
+        color: #fff;
+        background-color: #eb0026 !important;
+    }
+    .toon-box{
+        position: relative;
+        line-height: 0;
+        overflow: hidden;
+        border: 1px solid black;
+    }
+    .toon-list{
+        list-style: none;
+        overflow: hidden;
+        float: left;
+    }
+    .toon-item{
+        position: relative;
+        float: left;
+        width: 148px;
+        height: 176px;
+        margin-right: 18px;
+    }
+    .img_thumb{
+        display: block;
+        vertical-align: top;
+    }
+    .toon-link{
+        height: 140px;
+        display: block;
+        text-decoration: none;
+        color: #000;
+    }
+    .toon-title{
+        height: 17px;
+        padding-top: 11px;
+        margin-top: 10px;
+        overflow: hidden;
+        line-height: 17px;
+        width: 100%;
+        font-size: 14px;
+        vertical-align: top;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+    .toon-artist{
+        overflow: hidden;
+        display: block;
+        font-size: 12px;
+        color: #777;
+        height: 15px;
+        line-height: 15px;
+    }
+    @media (min-width: 961px){
+        .toon-week-box{
+            padding:  8px 0;
+        }
+        .toon-week{
+            min-width: 68px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 20px;
+            margin: 8px;
+            padding: 0 16px;
+            font-size: 16px;
+        }
+    }
+    @media (max-width: 960px){
+        .toon-week-box{
+            padding:  6px 0;
+            white-space: nowrap;
+            overflow: auto;
+            scroll-snap-type: x mandatory;
+        }
+        .toon-box{
+            padding-top: 24px;
+            padding-bottom: 8px;
+        }
+    }
+    @media (max-width: 960px) and (min-width: 640px){
+        .toon-week-box{
+            padding-left: 8px;
+            margin-right: -16px;
+            margin-left: -16px;
+            scroll-padding-left: 16px;
+        }
+    }
+</style>
+<body>
+    <div class="toon-week-box">
+        <button class="toon-week" aria-selected="true" data>월</button>
+        <button class="toon-week">화</button>
+        <button class="toon-week">수</button>
+        <button class="toon-week">목</button>
+        <button class="toon-week">금</button>
+        <button class="toon-week">토</button>
+        <button class="toon-week">일</button>
+        <button class="toon-week">열흘</button>
+    </div>
+    <div class="toon-box">
+        <ul class="toon-list">
+            <li class="toon-item">
+                <a class="toon-link" href="#">
+                    <img src="http://t1.daumcdn.net/webtoon/op/3d6ef2931623e1eab1db5c8b5fb7580987850136" width="148" height="106" class="img_thumb" alt="우리가 헤어진 사이에">
+                    <span class="toon-title">우리가 헤어진 사이에</span>
+                    <span class="toon-artist">오하</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    $(function(){
+        $('.toon-week-box .toon-week').click(function(){
+            $('.toon-week-box .toon-week').attr('aria-selected','false');
+            $(this).attr('aria-selected','true');
+        })
+    })
+</script>
+</html>

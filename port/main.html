@@ -3,623 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>main</title>
+    <title>Document</title>
     <script src="../js/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/506afee8ab.js" crossorigin="anonymous"></script>
-    <link rel="icon" sizes="192x192" href="http://cdn.lezhin.com/files/assets/img/favicon.png">
     <style>
-        /* 기본 */
-        body{
-            position: relative;
-            margin: 0;
-            overflow: scroll;
-            background-color: silver;
-            color: #333;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 14px;
-            line-height: 1.5;
-            text-size-adjust: none;
-            overflow-wrap: break-word;
-        }
-        a{
-            color: inherit;
-            text-decoration: none;
-        }
-        a:hover{
-            color: black;
-            text-decoration: none;
-        }
-        input:focus{
-            outline-offset: 0px;
-        }
         
-        /* 전체 */
-        .common{
+
+        /* main 구성 */
+        .main-banner{
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+        .main-banner::before{
+            right: 100%;
+        }
+        .main-banner::after{
+            left: 100%;
+        }
+        .main-banner::before,.main-banner::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+            background: #fff;
+        }
+        .banner-swiper{
+            position: relative;
+            z-index: 1;
+            display: flex;
+            overflow: hidden;
+            box-sizing: content-box;
+            transition-property: transform, -webkit-transform;
+            
+        }
+        .banner-swiper img{
+            display: block;
+            width: 100%;
+            min-height: 10px;
+        }
+        .banner-item{
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+            transition-property: transform, -webkit-transform;
+        }
+        .banner-link{
+            position: relative;
+            height: 0;
+            display: block;
+            margin: auto;
+            background-color: #e9e9e9;
+        }
+        .banner-img-box{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .banner-img-box>img,.banner-img-box>source{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .main-ranking{
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+        .main-left{
+            width: 49%;
+            background-color: lightcoral;
+            height: 250px;
+        }
+        .main-right{
+            width: 49%;
+            background-color: thistle;
+            height: 250px;
+        }
+        .main-new{
+            width: 100%;
+            height: 150px;
+            background-color: wheat;
+        }
+        .main-update{
+            width: 100%;
+            height: 150px;
+            background-color: thistle;
+        }
+        /* 배너버튼 */
+        .banner-nav{
+        	position: absolute;
+        	top: 50%;
+        	left: 0;
+        	right: 0;
+        	margin: -25px auto 0;        	
+        }
+        .banner-btn{
+        	position: absolute;
+        	z-index: 5;
+        	box-sizing: border-box;
+        	width: 54px;
+        	height: 54px;
+        	overflow: hidden;
+        	border: 3px solid #fff;
+        	background-color: transparent;
+        	border-radius: 50%;
+        	font-size: 30px;
+        	color: #fff;
+        	line-height: 30px;
+        }
+        .banner-prev{
+        	left: 32px;
+        }
+        .banner-next{
+        	right: 32px;
+        }
+        /* header */
+        .com{
             position: relative;
             box-sizing: border-box;
             margin-left: auto;
             margin-right: auto;
         }
-        .common::after{
+        .com::after{
             content: '';
             display: block;
             clear: both;
         }
-        /* header -> 메뉴 */
-        .common-menu{
+        .com-menu{
             z-index: 7;
-            background-color: #fff;
+            background-color: khaki;
             line-height: 64px;
             white-space: nowrap;
-        }
-
-        /* header -> 로고 */
-        .gnb-logo{
-            text-align: center;
-            font-size: 0;
-            background: #ed1c24 padding-box;
-        }
-        .gnb-logo::after{
-            content: '';
-            vertical-align: middle;
-            display: inline-block;
-            background: url("http://cdn.lezhin.com/files/assets/img/jaymee.svg") no-repeat center/contain;
-        }
-        
-        /* header -> 네비게이션 */
-        .gnb{
-            line-height: 0;
-            font-size: 0;
-            white-space: nowrap;
-        }
-        ol,ul{
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        /* 사이트 네비게이션 */
-        .gnb-list{
-            white-space: nowrap;
-        }
-        .gnb-item{
-            position: relative;
-            vertical-align: top;
-            margin-right: 12px;
-            text-align: center;
-        }
-        .gnb-link{
-            position: relative;
-            display: inline-block;
-            padding: 0 8px;
-            vertical-align: middle;
-            text-align: center;
-            border-radius: 2px;
-            text-transform: uppercase;
-            color: rgb(0,0,0);
-            font-size: 16px;
-            font-weight: bold;
-            line-height: 48px;
-        }
-        
-        /* 검색창 열기 */
-        .search-btn{
-            padding: 0;
-            overflow: hidden;
-            position: absolute;
-            width: 48px;
-            height: 48px;
-            border: 0;
-            font-size: 1px;
-            color: black;
-            color: transparent;
-            background: url("http://cdn.lezhin.com/files/assets/img/icon-search.svg") no-repeat 50% 16px/20px;
-        }
-        /* 검색창 */
-        .search{
-            position: absolute;
-            z-index: 6;
-            box-sizing: border-box;
-            text-align: left;
-        }
-        .search-field{
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-        .search-input{
-            display: block;
-            color: #000;
-            outline: 0;
-            border: 0;
-            border-radius: 0;
-            background: #fff;
-            -webkit-appearance: none;
-            appearance: none;
-        }
-        .search-list{
-            position: absolute;
-            overflow-y: auto;
-            z-index: 100;
-            width: 280px;
-            font-size: 16px;
-            background-color: #fff;
-            box-shadow: 0 1px 2px rgba(128,128,128,0);
-        }
-        .search-item{
-            display: block;
-            background-position: 100% 0;
-            background-repeat: no-repeat;
-            background-size: 50px 50px;
-            cursor: pointer;
-            height: 58px;
-            margin: 0;
-            padding: 4px 10px;
-            position: relative;
-        }
-        .search-thumb{
-            position: absolute;
-            right: 4px;
-            top: 4px;
-            width: 50px;
-            height: 50px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 50px 50px;
-        }
-        .search-img{
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        .search-title{
-            font-weight: bold;
-        }
-        .search-artist{
-            font-size: 14px;
-            color: #666;
-        }
-        .search-title,.search-artist{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            padding-right: 50px;
-            text-align: left;
-            margin: 0;
-        }
-
-        /* 로그인관련 */
-        .logNav-btn{
-            position: absolute;
-            overflow: visible;
-            height: 48px;
-            line-height: 48px;
-            padding: 0;
-            border: none;
-            box-sizing: border-box;
-            background: transparent;
-            color: transparent;
-            text-align: left;
-            white-space: nowrap;
-            font-size: 0;
-            -webkit-tap-highlight-color: initial;
-        }
-        .logNav-btn::after{
-            content: '';
-            position: relative;
-            display: inline-block;
-            vertical-align: top;
-            background: #000;
-        }
-        .logNav-text{
-            position: relative;
-            display: inline-block;
-            text-align: center;
-            vertical-align: top;
-            color: #000;
-            font-weight: bold;
-        }
-        .logNav{
-            transform: translateX(calc(var(--translate-logNav)*1px)) translateZ(0);
-        }
-        .logNav{
-            --translate-logNav: 0;
-            background: #fff;
-            z-index: 5;
-            text-align: left;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-            will-change: opacity, transform;
-        }
-        .logNav-before .account{
-            padding: 0 16px 16px;
-        }
-        .account{
-            max-width: 300px;
-            margin: auto;
-            line-height: 0;
-        }
-        .login-heading{
-            margin-top: 15px;
-            text-align: center;
-        }
-        .login-item{
-            position: relative;
-            margin: 12px 0;
-            padding-top: 16px;
-            font-size: 0;
-        }
-        .account,.login-input{
-            display: block;
-            width: 100%;
-            height: 45px;
-            margin-bottom: 8px;
-            line-height: 32px;
-            padding: 0 2px;
-            -webkit-appearance: none;
-            border: 0;
-            border-radius: 0;
-            border-bottom: 1px solid #c5cbd3;
-            box-sizing: border-box;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        .login-btn{
-            width: 100%;
-            border: none;
-            background-color: #ed1c24;
-            font-size: 14px;
-            color: #fff;
-        }
-
-        /* 브라우저 min */
-        @media(min-width: 961px){
-            /* min 961 -> 메뉴 */
-            .common-menu{
-                border-top: 24px solid #fff;
-                border-bottom: 24px solid #fff;
-            }
-            
-            /* min 961 -> 로고 */
-            .gnb-logo{
-                float: left;
-                width: 64px;
-                height: 64px;
-                line-height: 64px;
-            }
-            .gnb-logo::after{
-                width: 27px;
-                height: 29px;
-            }
-            /* min 961 -> 사이트 네비 */
-            .gnb{
-                float: left;
-                margin: 8px 0 4px 48px;
-            }
-            .gnb-item{
-                display: inline-block;
-            }
-            .gnb-link:hover::after{
-                content: '';
-                position: absolute;
-                background: black;
-                height: 2px;
-                left: 8px;
-                right: 8px;
-                bottom: 8px;
-            }
-            /* min 961 -> 검색창 열기 */
-            .search-btn{
-                top: 50%;
-                right: 124px;
-                transform: translateY(-50%);
-            }
-            /* min 961 -> 검색창 */
-            .search{
-                position: absolute;
-                top: 16px;
-                right: 124px;
-                width: 280px;
-                transform-origin: 100% 0;
-                border: 1px solid #dbdee3;
-            }
-            .search-filed-btn{
-                content: '';
-                position: absolute;
-                border: none;
-                z-index: 2;
-                top: 0;
-                right: 5px;
-                width: 35px;
-                height: 35px;
-                background: url("http://cdn.lezhin.com/files/assets/img/home_search_icon.png") no-repeat center;
-                background-size: contain;
-            }
-            .search-input{
-                width: 280px;
-                height: 35px;
-                line-height: 20px;
-                padding: 6px 40px 8px 8px;
-                border-bottom: 1px solid #000;
-                font-size: 16px;
-                box-shadow: 0 0 0 10px #fff;
-            }
-            .search-list{
-                top: 48px;
-                left: auto;
-                right: 0;
-            }
-            .search-title,.search-artist{
-                height: 25px;
-                line-height: 25px;
-            }
-            .search-title{
-                font-size: 16px;
-            }
-
-            /* min 961 -> 로그인 관련 열기 */
-            .logNav-btn{
-                top: 50%;
-                right: 16px;
-                transform: translateY(-50%);
-            }
-            .logNav-btn::after{
-                width: 28px;
-                height: 4px;
-                top: 10px;
-                box-shadow: 0 8px #000, 0 16px #000, 0 24px #000;
-            }
-            .logNav-text{
-                top: 10px;
-                height: 28px;
-                line-height: 24px;
-                padding: 0 12px;
-                border-top: 4px solid #000;
-                border-bottom: 4px solid #000;
-                font-size: 12px;
-            }
-            .logNav{
-                position: absolute;
-                top: 64px;
-                right: 16px;
-                width: 280px;
-                height: 450px;
-                transform-origin: 100% 0;
-                border: 1px solid #dbdee3;
-            }
+            height: 112px;
         }
         @media(min-width: 640px){
             /* min 640 -> 전체 */
-            .common{
+            .com{
                 padding-left: 16px;
                 padding-right: 16px;
             }
             /* min 640 -> 공통메뉴 */
-            .common-menu{
+            .com-menu{
                 box-shadow: -1000px 0 0 #fff, 1000px 0 0 #fff;
             }
         }
         @media(min-width: 1281px){
             /* min 1281 -> 전체 */
-            .common{
+            .com{
                 max-width: 1212px;
             }
-            
         }
-        
-        /* 브라우저 max */
-        @media (max-width: 639px){
-            /* max 639 -> 로고 */
-            .gnb-logo{
-                margin-left: 8px;
-            }
-            /* max 639 -> 로그인관련 */
-            .logNav-btn{
-                right: 4px;
-            }
-
-        }
-
         @media(max-width: 1280px) and (min-width: 961px){
             /* max 1280 -> 전체 */
-            .common{
+            .com{
                 max-width: 1036px;
             }
         }
-        @media(max-width: 960px) and (min-width: 640px){
-            /* max 960 -> 로고 */
-            .gnb-logo{
-                margin-left: -4px;
-            }
-            /* max 960 -> 로그인관련 */
-            .logNav-btn{
-                right: 8px;
-            }
-        }
-        
         @media(max-width: 960px){
             /* max 960 -> 전체 */
-            .common{
+            .com{
                 width: 100%;
             }
-            /* max 960 -> 공통메뉴 */
-            .common-menu{
-                border-top: 8px solid #fff;
-                border-bottom: 8px solid #fff;
+        }
+        /* 브라우저 min 961 */
+        @media (min-width: 961px){
+            .com-home{
+                min-height: 800px;
             }
-            .common-menu::before,.common-menu::after{
-                position: absolute;
-                z-index: 2;
-                top: 48px;
-                bottom: 0;
-                width: 24px;
-                pointer-events: none;
+            .main-banner{
+                margin-bottom: 44px;
             }
-            .common-menu::before{
-                left: 0;
-                background: linear-gradient(to left, #fff, rgba(255,255,255,0));
+            .main-left{
+                margin-right: 32px;
             }
-            .common-menu::after{
-                right: 0;
-                background: linear-gradient(to left, #fff, rgba(255,255,255,0));
+            
+            
+        }
+        
+        @media (max-width: 960px){
+            .com-home{
+                min-height: 600px;
             }
-            /* max 960 -> 로고 */
-            .gnb-logo{
+            .main-left,.main-right{
+                width: 50%;
+            }
+        }
+        @media (min-width: 640px){
+            .banner-link{
+                padding-top: 38.135593%;
+            }
+        }
+        @media (max-width: 639px){
+            .main-banner{
+                margin-bottom: 16px;
+            }
+            .banner-link{
+                padding-top: 107.5%;
+            }
+            .banner-img-box>.banner-img{
+                display: none;
+            }
+            .banner-img-box>.banner-img-small{
                 display: block;
-                position: relative;
-                z-index: 5;
-                width: 48px;
-                height: 48px;
-                line-height: 40px;
-                border: 4px solid #fff;
-            }
-            .gnb-logo::after{
-                width: 20px;
-                height: 22px;
-            }
-            /* max 960 -> 사이트네비 */
-            .gnb{
-                margin-top: 8px;
-                padding: 0 2%;
-                overflow-x: auto;
-            }
-            .gnb-list{
-                width: 100%;
-                display: table;
-            }
-            .gnb-item{
-                display: table-cell;
-            }
-            /* 검색창 */
-            .search-btn{
-                position: absolute;
-                top: 0;
-                right: 84px;
-            }
-            /* max 960 -> 로그인 관련 */
-            .logNav-btn{
-                position: absolute;
-                top: 0;
-                padding: 0 8px;
-            }
-            .logNav-btn::after{
-                width: 20px;
-                height: 3px;
-                top: 14px;
-                box-shadow: 0 6px #000, 0 12px #000, 0 18px #000;
-            }
-            .logNav-text{
-                top: 14px;
-                height: 21px;
-                line-height: 18px;
-                padding: 0 4px;
-                border-top: 3px solid #000;
-                border-bottom: 3px solid #000;
-                font-size: 10px;
             }
         }
 
-        .display-none{
-            display: none;
+        /* 배너크기 */
+        @media (min-width: 1281px){
+            .banner-link{
+                width: 1181px;
+            }
         }
+        @media (max-width: 1280px){
+            .banner-link {
+                min-width: 1004px; 
+                
+            }
+        }
+
+
     </style>
 </head>
 <body>
-    <!-- 상단 header -->
-    <header id="main-header" class="common common-menu">
-        <a class="gnb-logo" href="#"></a>
-        <!-- 공통메뉴 -->
-        <nav id="gnb" class="gnb">
-            <ul class="gnb-list">
-                <li class="gnb-item">
-                    <a class="gnb-link" href="#">연재</a>
-                </li>
-                <li class="gnb-item">
-                    <a class="gnb-link" href="#">랭킹</a>
-                </li>
-                <li class="gnb-item">
-                    <a class="gnb-link" href="#">무료</a>
-                </li>
-                <li class="gnb-item">
-                    <a class="gnb-link" href="#">이벤트</a>
-                </li>
-                <li class="gnb-item">
-                    <a class="gnb-link" href="#">완결</a>
-                </li>
-            </ul>
-        </nav>
-        <!-- 검색창 -->
-        <button class="search-btn"></button>
-        <div class="search display-none">
-            <fieldset clss="search-field">
-                <input type="text" class="search-input" placeholder="작품/작가명을 검색해주세요.">
-                <div class="search-list display-none" >
-                    <a href="#" class="search-item">
-                        <div class="search-thumb">
-                            <img class="search-img" src="https://cdn.lezhin.com/v2/comics/5331411003506688/images/thumbnail?updated=1464059206774&amp;width=100" alt="">
-                        </div>
-                        <p class="search-title">제목(방과후 개그부)</p>
-                        <p class="search-artist">작가(타카시마 히로미)</p>
-                    </a>
-                    <a href="#" class="search-item">
-                        <div class="search-thumb">
-                            <img class="search-img" src="https://cdn.lezhin.com/v2/comics/5331411003506688/images/thumbnail?updated=1464059206774&amp;width=100" alt="">
-                        </div>
-                        <p class="search-title">제목(방과후 개그부)</p>
-                        <p class="search-artist">작가(타카시마 히로미)</p>
-                    </a>
-                </div>
-                <button class="search-filed-btn"></button>
-            </fieldset>
-        </div>
-
-        <!-- 로그인 -->
-        <button class="logNav-btn">
-            <b class="logNav-text">로그인</b>
-            <i class="logNav_notiNum"></i>
-        </button>
-        <nav class="logNav logNav-live display-none" >
-            <div class="logNav-before">
-                <form method="POST" class="account">
-                    <h2 class="login-heading">로그인</h2>
-                    <div class="login-item">
-                        <input type="text" class="login-input" name="id" placeholder="아이디">
-                        <input type="password" class="login-input" name="pw" placeholder="비밀번호">
-                        <br>
-                        <button type="submit" class="login-btn">로그인</button>
+    <header id="main-header" class="com com-menu"></header>
+    <main class="com com-home">
+        <div class="main-banner">
+            <div class="banner-list">
+                <div class="banner-swiper">
+                    <div class="banner-item">
+                        <a href="#" class="banner-link">
+                            <div class="banner-img-box">
+                                <img class="banner-img-small display-none" src="https://cdn.lezhin.com/v2/inventory_items/5708691536412672/media/upperBannerMobile.webp?updated=1596435070000&amp;width=688">
+                                <img class="banner-img" src="https://cdn.lezhin.com/v2/inventory_items/4648237082935296/media/upperBanner.webp?updated=1596435070000&width=1180" alt="">
+                            </div>
+                        </a>
                     </div>
-
-                </form>
+                    <div class="banner-item">
+                        <a href="#" class="banner-link">
+                            <div class="banner-img-box">
+                                <img class="banner-img-small display-none" src="https://cdn.lezhin.com/v2/inventory_items/4648237082935296/media/upperBannerMobile.webp?updated=1596373734000&amp;width=688">
+                                <img class="banner-img" src="https://cdn.lezhin.com/v2/inventory_items/4874818982313984/media/upperBanner.webp?updated=1596373734000&width=1180" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="banner-item">
+                        <a href="#" class="banner-link">
+                            <div class="banner-img-box">
+                                <img class="banner-img-small display-none" src="https://cdn.lezhin.com/v2/inventory_items/5708691536412672/media/upperBannerMobile.webp?updated=1597138018000&amp;width=688">
+                                <img class="banner-img" src="https://cdn.lezhin.com/v2/inventory_items/5708691536412672/media/upperBanner.webp?updated=1597138018000&width=1180" alt="">
+                            </div>
+                        </a>    
+                    </div>
+                </div>
             </div>
-            
-
-        </nav>
-    </header>
-
+            <div class="banner-nav">
+                <div class="banner-prev">
+                    <i class="fas fa-caret-left"></i>
+                </div>
+                <div class="banner-next">
+                    <i class="fas fa-caret-right"></i>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="main-ranking">
+            <div class="main-left"></div>
+            <div class="main-right"></div>
+        </div>
+        <div class="main-box">
+            <div class="main-new"></div>
+            <div class="main-update"></div>
+        </div> -->
+    </main>
     <script>
-        $(function(){
-            var tog=$('.search').
-            $('.search-btn').click(function(e){
-                e.stopPropagation();
-                e.preventDefault();
-                $('.logNav').stop().slideUp(); 
-                $('.search-input').focus();
-            })
-            $('.logNav-btn').click(function(e){
-                e.stopPropagation();
-                e.preventDefault();
-                $('.search').stop().slideUp(); 
-                $('.logNav').stop().slideToggle(); 
-            })
-            
-            
-        })
-        $(document).click(function(e){
-                e.preventDefault();
-                $('.search').stop().slideUp(); 
-                $('.logNav').stop().slideUp(); 
-        })
+        function bannerRolling(){
+           return setInterval(function(){
+                $('.banner-item').first().animate({'margin-left':'-1180px'},300,function(){
+                    $(this).detach().appendTo('.banner-swiper').removeAttr('style');
+                })
+            },3000)
+        }
+        
     </script>
 </body>
 </html>
